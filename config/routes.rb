@@ -65,6 +65,7 @@ Diaspora::Application.routes.draw do
   # ActivityStreams routes
   scope "/activity_streams", :module => "activity_streams", :as => "activity_streams" do
     resources :photos, :controller => "photos", :only => [:create, :show, :destroy]
+    resources :notes, :controller => "notes", :only => [:create]
   end
 
 
