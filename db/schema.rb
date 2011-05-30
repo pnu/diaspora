@@ -265,6 +265,7 @@ ActiveRecord::Schema.define(:version => 20110623210918) do
     t.string   "provider_display_name"
     t.string   "actor_url"
     t.integer  "objectId"
+    t.integer  "root_id"
     t.string   "status_message_guid"
   end
 
