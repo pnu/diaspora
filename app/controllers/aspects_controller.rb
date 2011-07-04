@@ -160,21 +160,8 @@ class AspectsController < ApplicationController
     params[:max_time] ||= Time.now + 1
   end
 
-  def tag_followings
-    if current_user
-      if @tag_followings == nil
-        @tag_followings = current_user.tag_followings
-      end
-      @tag_followings
-    end
-  end
-
   def tags
-    if tag_followings != [] && @tags != [] 
-      @tags ||= ActsAsTaggableOn::Tag.where(:id => tag_followings.map(&:id)).all
-    else
-      @tags ||= []
-    end
+    @tags ||= current_user.followed_tags
   end
 
   private
