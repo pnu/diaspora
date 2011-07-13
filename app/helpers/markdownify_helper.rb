@@ -4,7 +4,7 @@
 
 module MarkdownifyHelper
   def markdownify(message, options={})
-    message = h(message).html_safe
+    message = h(message).to_str
 
     options[:newlines] = true if !options.has_key?(:newlines)
     options[:emoticons] = true if !options.has_key?(:emoticons)
@@ -18,7 +18,7 @@ module MarkdownifyHelper
 
     message.gsub!(/\n+/, '<br />') if options[:newlines]
 
-    message
+    message.html_safe
   end
 
   def process_links(message)
